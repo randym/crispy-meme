@@ -24,6 +24,20 @@ const loaders = {
         include: path.resolve(__dirname, "app/javascript/stylesheets"),
         use: [MiniCssExtractPlugin.loader, "postcss-loader", "css-loader"],
       },
+      {
+        test: /\.(ts|tsx|js)$/,
+        exclude: [/node_modules/, /_test_*.*\.(ts|tsx|js)$/],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-typescript",
+              "@babel/preset-react",
+            ],
+          },
+        },
+      },
     ],
   },
 };

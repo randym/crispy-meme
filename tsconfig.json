@@ -20,20 +20,13 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true
   },
-  "exclude": [
-    "**/*_test.tsx",
-    "**/*.spec.ts",
-    "node_modules",
-    "vendor",
-    "public"
-  ],
+  "exclude": ["node_modules", "vendor", "public"],
   "compileOnSave": false,
   "include": [
     "global.d.ts",
     "monkey_patching.d.ts",
     "app/javascript/src/**/*.ts",
     "app/javascript/src/**/*.tsx",
-    "app/javascript/stylesheets/**/*.css",
-    "app/javascript/src/_router_test.tsx"
+    "app/javascript/stylesheets/**/*.css"
   ]
 }

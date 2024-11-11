@@ -164,6 +164,7 @@ const config: Config = {
   testMatch: [
     "**/__tests__/**/*.[jt]s?(x)",
     "**/*_test.[jt]s?(x)",
+    "**/_test_*.[jt]s?(x)",
     "**/?(*.)+(spec|test).[tj]s?(x)",
   ],
 

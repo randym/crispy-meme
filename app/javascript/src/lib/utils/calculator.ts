@@ -112,6 +112,8 @@ export class Calculator<T> {
     return this.cached(attribute, "std", lambda) as number;
   }
 
+  // linear interpolation of the percentile
+  // Note that this is NOT using rank-based percentile
   private percentile(attribute: keyof T, value: number): number {
     const values = this.sorted(attribute);
 

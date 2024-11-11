@@ -55,6 +55,10 @@
       "@babel/preset-react",
       "@babel/preset-typescript",
       "@babel/preset-env"
+    ],
+    "ignore": [
+      "node_modules",
+      "**/_test_*.*"
     ]
   },
   "browserslist": [
