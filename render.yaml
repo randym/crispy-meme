@@ -9,7 +9,7 @@ services:
     name: crispy-meme
     runtime: ruby
     plan: free
-    buildCommand: "./bin/render-build.sh"
+    buildCommand: "bundle exec ./bin/render-build.sh"
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
