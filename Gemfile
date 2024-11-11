@@ -14,7 +14,7 @@ gem "puma", ">= 5.0"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 # CSV is getting ejected from the standard library [https://bugs.ruby-lang.org/issues/14152]
-gem "smarter_csv", "~> 1.12"
+gem "smarter_csv", "~> 1.13"
 
 gem "kaminari", "~> 1.2"
 
