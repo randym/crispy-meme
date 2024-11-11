@@ -31,9 +31,6 @@ export const Household: JsonApiTransformer<HouseholdModel> = {
       attributes: data,
       relationships,
     } = json as JsonApiHousehold;
-    if (type !== "household") {
-      throw new Error(`Expected type 'household', received '${type}'`);
-    }
 
     const { ref, firstName, lastName, residentCount, hasChildren, city } = data;
     const energyProductions = EnergyProduction.transform(

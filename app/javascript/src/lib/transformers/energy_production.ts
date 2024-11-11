@@ -18,11 +18,6 @@ export const EnergyProduction: JsonApiTransformer<EnergyProductionModel> = {
     json: JsonApiEnergyProduction;
   }): EnergyProductionModel {
     const { id, type, attributes } = json;
-
-    if (type !== "energyProduction") {
-      throw new Error(`Expected type 'energyProduction', received '${type}'`);
-    }
-
     const {
       householdRef,
       productionMonth: productionMonthString,

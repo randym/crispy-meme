@@ -45,12 +45,7 @@ export const City: JsonApiTransformer<CityModel> = {
   },
 
   parseJsonApi({ json, jsonApiHouseholds, jsonApiEnergyProductions }) {
-    const { id, type, attributes } = json;
-
-    if (type !== "city") {
-      throw new Error(`Expected type 'city', received '${type}'`);
-    }
-
+    const { id, attributes } = json;
     const { name } = attributes;
     const householdDoc: JsonApiHouseholdsDocument = {
       data: jsonApiHouseholds as JsonApiHousehold[],
