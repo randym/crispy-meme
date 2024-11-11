@@ -1,12 +1,22 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import { Cities, City, Households, CityHouseholds, Household } from "./routes";
 import { Root as Page } from "./layouts";
-
 export const Root = {
   path: "/",
   element: <Page />,
-  children: [Cities, City, Households, CityHouseholds, Household],
+  children: [
+    { path: "/", element: <Navigate to="/cities" /> },
+    Cities,
+    City,
+    Households,
+    CityHouseholds,
+    Household,
+  ],
 };
 
 const router = createBrowserRouter([Root]);
