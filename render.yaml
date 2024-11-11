@@ -1,0 +1,23 @@
+databases:
+  - name: crispy-meme
+    databaseName: crispy-meme
+    user: crispy-meme
+    plan: free
+
+services:
+  - type: web
+    name: crispy-meme
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: crispy-meme
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
+
