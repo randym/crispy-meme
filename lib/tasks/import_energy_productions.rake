@@ -11,7 +11,7 @@ namespace :import do
 
   desc "Import energy prodction data CSV"
   task energy_productions: :environment do
-    file_path = ENV["FILE_PATH"] || "source_data/house_data.csv"
+    file_path = ENV["FILE_PATH"] || "source_data/dataset_50.csv"
     options = {
       chunk_size: 100,
       required_keys: %i[
