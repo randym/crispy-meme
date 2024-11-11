@@ -65,7 +65,8 @@ log
 tmp
 
 # Ignore local storage
-storage
+/storage/*
+!/storage/.keep
 
 # Ignore editor settings
 .vscode/

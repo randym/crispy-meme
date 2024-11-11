@@ -20,6 +20,8 @@ gem "kaminari", "~> 1.2"
 
 gem "fast_jsonapi", "~> 1.5"
 
+gem "shakapacker", "= 8.0"
+
 # MARK: - Development and test
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -32,6 +34,4 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "prettier", "~> 4.0"
-
-  gem "shakapacker", "= 8.0"
 end

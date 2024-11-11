@@ -13,13 +13,7 @@ WORKDIR /rails
 
 # Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 sqlite3 && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-# npm install
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y nodejs npm && \
-    npm install && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 sqlite3 nodejs npm && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment
@@ -41,13 +35,17 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
+# Install npm dependencies
+COPY package.json package-lock.json ./
+RUN npm install
+
 # Copy application code
 COPY . .
 
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 # RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails shakapacker
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails shakapacker:compile
 
 # Final stage for app image
 FROM base
