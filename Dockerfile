@@ -65,6 +65,8 @@ USER 1000:1000
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Import data from the seed files
+
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:migrate
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rake import:all
 
 # Start the server by default, this can be overwritten at runtime
