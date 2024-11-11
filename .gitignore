@@ -80,3 +80,7 @@ notes.md
 
 # Ignore yarn lock files
 yarn.lock
+
+# Ignore vendor
+/vendor/*
+!/vendor/.keep
