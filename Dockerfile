@@ -46,7 +46,7 @@ COPY . .
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 # RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails shakapacker:compile
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rake import:all
+
 
 # Final stage for app image
 FROM base
@@ -63,6 +63,9 @@ USER 1000:1000
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+# Import data from the seed files
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rake import:all
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
