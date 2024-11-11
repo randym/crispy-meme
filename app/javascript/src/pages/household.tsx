@@ -11,7 +11,7 @@ export const Household = () => {
       <Typography variant="h4" className="m-4">
         Household
       </Typography>
-      <Card item={household} />;
+      <Card item={household} />
     </>
   );
 };

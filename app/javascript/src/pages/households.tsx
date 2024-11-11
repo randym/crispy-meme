@@ -17,7 +17,7 @@ export const Households = () => {
       <Typography variant="h4" className="m-4">
         Households
       </Typography>
-      <InfiniteScrollingList {...props} />;
+      <InfiniteScrollingList {...props} />
     </>
   );
 };
