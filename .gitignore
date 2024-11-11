@@ -62,7 +62,8 @@ notes.md
 
 
 # Ignore tmp
-tmp
+/tmp/*
+!/tmp/.keep
 
 # Ignore local storage
 /storage/*
