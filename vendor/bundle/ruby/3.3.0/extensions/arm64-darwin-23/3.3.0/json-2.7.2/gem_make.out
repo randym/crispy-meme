@@ -1,0 +1,16 @@
+current directory: /Users/randym/dev/enechange/fullstack_challenge_1/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+/Users/randym/.asdf/installs/ruby/3.3.0/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/randym/dev/enechange/fullstack_challenge_1/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241023-68267-xc7tgy sitelibdir\=./.gem.20241023-68267-xc7tgy clean
+
+current directory: /Users/randym/dev/enechange/fullstack_challenge_1/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241023-68267-xc7tgy sitelibdir\=./.gem.20241023-68267-xc7tgy
+make: Nothing to be done for `all'.
+
+current directory: /Users/randym/dev/enechange/fullstack_challenge_1/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241023-68267-xc7tgy sitelibdir\=./.gem.20241023-68267-xc7tgy install
+
+current directory: /Users/randym/dev/enechange/fullstack_challenge_1/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241023-68267-xc7tgy sitelibdir\=./.gem.20241023-68267-xc7tgy clean

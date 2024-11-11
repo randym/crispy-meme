@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "lib": ["es6", "dom"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "ES2018",
+    "jsx": "react",
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["app/javascript/src/*"]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "exclude": [
+    "**/*_test.tsx",
+    "**/*.spec.ts",
+    "node_modules",
+    "vendor",
+    "public"
+  ],
+  "compileOnSave": false,
+  "include": [
+    "global.d.ts",
+    "monkey_patching.d.ts",
+    "app/javascript/src/**/*.ts",
+    "app/javascript/src/**/*.tsx",
+    "app/javascript/stylesheets/**/*.css",
+    "app/javascript/src/_router_test.tsx"
+  ]
+}

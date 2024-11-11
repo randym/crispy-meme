@@ -1,0 +1,1 @@
+{"data":{"id":"1","type":"household","attributes":{"ref":1,"lastName":"Doe","firstName":"John","hasChildren":true,"residentCount":3,"city":"City One"},"relationships":{"energyProductions":{"data":[{"id":"1","type":"energyProduction"},{"id":"2","type":"energyProduction"}]},"city":{"data":{"id":"1","type":"city"}}}},"meta":{"page":1,"per":5}}

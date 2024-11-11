@@ -1,0 +1,95 @@
+one:
+  id: 1
+  ref: 1
+  label: 101
+  household_ref: 1
+  production_month: 2023-01-01
+  temperature: 15.5
+  daylight: 200.0
+  kwh: 500
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+two:
+  id: 2
+  ref: 2
+  label: 102
+  household_ref: 1
+  production_month: 2023-02-01
+  temperature: 16.0
+  daylight: 210.0
+  kwh: 520
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+three:
+  id: 3
+  ref: 3
+  label: 103
+  household_ref: 2
+  production_month: 2023-01-01
+  temperature: 15.5
+  daylight: 200.0
+  kwh: 480
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+four:
+  id: 4
+  ref: 4
+  label: 104
+  household_ref: 2
+  production_month: 2023-02-01
+  temperature: 16.0
+  daylight: 210.0
+  kwh: 510
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+five:
+  id: 5
+  ref: 5
+  label: 105
+  household_ref: 3
+  production_month: 2023-01-01
+  temperature: 15.5
+  daylight: 200.0
+  kwh: 470
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+six:
+  id: 6
+  ref: 6
+  label: 106
+  household_ref: 3
+  production_month: 2023-02-01
+  temperature: 16.0
+  daylight: 210.0
+  kwh: 490
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+seven:
+  id: 7
+  ref: 7
+  label: 107
+  household_ref: 4
+  production_month: 2023-01-01
+  temperature: 15.5
+  daylight: 200.0
+  kwh: 460
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>
+
+eight:
+  id: 8
+  ref: 8
+  label: 108
+  household_ref: 4
+  production_month: 2023-02-01
+  temperature: 16.0
+  daylight: 210.0
+  kwh: 480
+  created_at: <%= Time.now %>
+  updated_at: <%= Time.now %>

@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "@prettier/plugin-ruby"
+  ],
+  "singleQuote": false,
+  "rubySingleQuote": false,
+  "tabWidth": 2,
+  "useTabs": false
+}

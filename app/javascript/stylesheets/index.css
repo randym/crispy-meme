@@ -1,0 +1,7 @@
+/* Always show scrollbar */
+html {
+  overflow-y: scroll;
+}
+a {
+  color: #4682b4;
+}

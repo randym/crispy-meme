@@ -1,0 +1,35 @@
+one:
+  id: 1
+  ref: 1
+  first_name: "John"
+  last_name: "Doe"
+  city_id: 1
+  resident_count: 3
+  has_children: true
+
+two:
+  id: 2
+  ref: 2
+  first_name: "Jane"
+  last_name: "Doe"
+  city_id: 1
+  resident_count: 2
+  has_children: false
+
+three:
+  id: 3
+  ref: 3
+  first_name: "Alice"
+  last_name: "Smith"
+  city_id: 2
+  resident_count: 4
+  has_children: true
+
+four:
+  id: 4
+  ref: 4
+  first_name: "Bob"
+  last_name: "Smith"
+  city_id: 2
+  resident_count: 1
+  has_children: false
