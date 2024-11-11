@@ -20,7 +20,7 @@ gem "kaminari", "~> 1.2"
 
 gem "fast_jsonapi", "~> 1.5"
 
-gem "shakapacker", "= 8.0"
+gem "shakapacker", "8.0.2"
 
 # MARK: - Development and test
 group :development, :test do
