@@ -12,9 +12,6 @@ export const Cities = () => {
 
   return (
     <>
-      <Typography variant="h4" className="m-4">
-        Cities
-      </Typography>
       <InfiniteScrollingList {...props} />
     </>
   );

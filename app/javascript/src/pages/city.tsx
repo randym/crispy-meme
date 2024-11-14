@@ -18,10 +18,6 @@ export const City = () => {
 
   return (
     <>
-      <Typography variant="h4" className="m-4">
-        City
-      </Typography>
-
       <Card item={city} />
       <InfiniteScrollingList {...props} />
     </>

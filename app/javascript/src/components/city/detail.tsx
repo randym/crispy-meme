@@ -22,7 +22,7 @@ export const Detail: React.FC<CityDetailProps> = ({ viewModel }) => {
           </LabeledField>
         ))}
       </div>
-      <Typography variant="lead">Monthly Averages</Typography>
+      <Typography>Monthly Averages</Typography>
       <div className="ml-2">
         {Object.entries(averages).map(([label, value]) => (
           <LabeledField label={label} key={label}>
