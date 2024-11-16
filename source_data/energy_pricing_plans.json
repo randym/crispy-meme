@@ -1,0 +1,90 @@
+[
+    {
+        "name": "Meter-Rate Lighting B",
+        "groups": [
+            {
+                "name": "Day time",
+                "tiers": [
+                    {
+                        "min": null,
+                        "max": 120,
+                        "rate": 19.43
+                    },
+                    {
+                        "min": 120,
+                        "max": 300,
+                        "rate": 25.91
+                    },
+                    {
+                        "min": 300,
+                        "max": null,
+                        "rate": 29.93
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Yoru Toku Plan",
+        "groups": [
+            {
+                "name": "Day time",
+                "tiers": [
+                    {
+                        "min": null,
+                        "max": 90,
+                        "rate": 24.03
+                    },
+                    {
+                        "min": 90,
+                        "max": 230,
+                        "rate": 32.03
+                    },
+                    {
+                        "min": 230,
+                        "max": null,
+                        "rate": 37.00
+                    }
+                ],
+                "hours": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20
+                ]
+            },
+            {
+                "name": "Night time",
+                "tiers": [
+                    {
+                        "min": null,
+                        "max": null,
+                        "rate": 12.48
+                    }
+                ],
+                "hours": [
+                    21,
+                    22,
+                    23,
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            }
+        ]
+    }
+]
