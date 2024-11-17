@@ -11,8 +11,10 @@ class EnergyPricingPlan < ApplicationRecord
 
   def explain_cost_for(readings)
     validate_readings_fomat(readings)
-    energy_pricing_groups.map { |group| group.explain_cost_for(readings) }
-    puts "Total Cost: #{cost_for(readings)}"
+    {
+      groups:
+        energy_pricing_groups.map { |group| group.explain_cost_for(readings) }
+    }
   end
 
   private

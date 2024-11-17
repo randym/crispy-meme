@@ -20,15 +20,17 @@ class EnergyPricingTier < ApplicationRecord
   end
 
   def explain_cost_for(kwh)
-    puts "kwh: #{kwh}"
-    puts "min: #{min}"
-    puts "max: #{max}"
-    puts "rate: #{rate}"
     tier_kwh = kwh > min ? [kwh - min, max - min].min : 0
-    puts "tier_kwh: #{tier_kwh}"
-    cont = cost_for(kwh)
-    puts "tier_cost: #{cont}"
-    puts ""
+    cost = cost_for(kwh)
+
+    {
+      kwh: kwh,
+      min: min,
+      max: max,
+      rate: rate,
+      tier_kwh: tier_kwh,
+      tier_cost: cost
+    }
   end
 
   private

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :households, only: %i[index show] do
       resources :city, only: %i[show]
     end
+
+    resources :energy_pricing_plans, only: %i[index show] do
+      post "calculate", on: :member
+    end
   end
 
   if Rails.env.development? || Rails.env.test?

@@ -31,10 +31,7 @@ class EnergyPricingGroup < ApplicationRecord
 
   def explain_cost_for(readings)
     hours = time_of_uses.pluck(:hour)
-    puts "------"
-    puts "Explaining cost for #{name} group"
-    puts "------"
-    puts "filter for hours: #{hours}"
+    output = { name: name, hours: hours }
     # Determine the total kWh for the readings that apply to this group
     total_kwh =
       readings.sum do |day|
@@ -49,9 +46,11 @@ class EnergyPricingGroup < ApplicationRecord
         end
       end
 
-    # Calculate the cost based on the total kWh and the pricing tiers
-    energy_pricing_tiers.each { |tier| tier.explain_cost_for(total_kwh) }
-    puts "Group Cost: #{cost_for(readings)}"
-    puts ""
+    output[:tiers] = energy_pricing_tiers.map do |tier|
+      tier.explain_cost_for(total_kwh)
+    end
+    output[:cost] = cost_for(readings)
+
+    output
   end
 end

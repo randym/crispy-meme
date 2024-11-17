@@ -1,0 +1,2 @@
+module EnergyPricingPlanHelper
+end

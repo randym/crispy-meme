@@ -24,6 +24,16 @@ module ActiveSupport
           params: params,
           headers: headers.merge("Accept" => "application/json")
     end
+
+    def post_json(url, body: {}, headers: {})
+      post url,
+           params: body.to_json,
+           headers:
+             headers.merge(
+               "Accept" => "application/json",
+               "Content-Type" => "application/json"
+             )
+    end
   end
 end
 

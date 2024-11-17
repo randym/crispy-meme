@@ -1,0 +1,31 @@
+{
+    "data": {
+        "id": "1",
+        "type": "energyPricingPlanCalculation",
+        "attributes": {
+            "name": "PlanOne",
+            "energyCharge": 1.5,
+            "energyChargeDetail": {
+                "groups": [
+                    {
+                        "name": "Plan 1",
+                        "hours": [
+                            1
+                        ],
+                        "tiers": [
+                            {
+                                "kwh": 3.414286197928956,
+                                "min": 1.5,
+                                "max": 2.5,
+                                "rate": 1.5,
+                                "tier_kwh": 1.0,
+                                "tier_cost": 1.5
+                            }
+                        ],
+                        "cost": 1.5
+                    }
+                ]
+            }
+        }
+    }
+}
