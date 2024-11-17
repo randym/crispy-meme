@@ -1,6 +1,5 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import { Typography } from "@material-tailwind/react";
 import {
   InfiniteScrollingList,
   Household as ComponentType,
