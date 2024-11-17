@@ -68,6 +68,7 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails db:migrate
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rake import:all
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rake create:energy_pricing_plans
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
