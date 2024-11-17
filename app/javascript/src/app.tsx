@@ -4,7 +4,14 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
-import { Cities, City, Households, CityHouseholds, Household } from "./routes";
+import {
+  Cities,
+  City,
+  Households,
+  CityHouseholds,
+  Household,
+  EnergyPricingPlans,
+} from "./routes";
 import { Root as Page } from "./layouts";
 export const Root = {
   path: "/",
@@ -16,6 +23,7 @@ export const Root = {
     Households,
     CityHouseholds,
     Household,
+    EnergyPricingPlans,
   ],
 };
 

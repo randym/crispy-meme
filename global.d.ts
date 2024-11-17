@@ -52,6 +52,21 @@ type JsonApiCitiesDocument = {
   included: JsonApiHousehold[] | JsonApiEnergyProduction[];
 };
 
+type JsonApiEnergyPricingPlan = JsonApiResourceIdentifier & {
+  attributes: {
+    name: string;
+    energy_pricing_groups: {
+      name: string;
+      time_of_use: number[];
+      tiers: { rate: number; min: number; max: number }[];
+    }[];
+  };
+};
+
+type JsonApiEnergyPricingPlansDocument = {
+  data: JsonApiEnergyPricingPlan[];
+};
+
 interface EnergyProductionAttributes {
   householdRef: number;
   productionMonth: string;
@@ -115,6 +130,12 @@ type EnergyProductionModel = {
   daylight: number;
 };
 
+type EnergyPricingPlanModel = {
+  id: number;
+  name: string;
+  groups: IEnergyPricingGroup[];
+  getCost: () => Promise<any>;
+};
 interface HouseholdProps {
   household: HouseholdModel;
 }
@@ -203,7 +224,8 @@ type JsonApiTransformer<T> = {
     json:
       | JsonApiCitiesDocument
       | JsonApiHouseholdsDocument
-      | JsonApiEnergyProduction[],
+      | JsonApiEnergyProduction[]
+      | JsonApiEnergyPricingPlansDocument,
   ) => T | T[];
   parseJsonApi: ({
     json,
@@ -238,4 +260,42 @@ type LoaderParams<T> = {
 
 interface Paginating<T> {
   page(pageNumber: number): Promise<readonly T[]>;
+}
+
+interface IEnergyPricingTier {
+  rate: number;
+  min: number;
+  max: number;
+}
+
+interface IEnergyPricingGroup {
+  name: string;
+  tiers: IEnergyPricingTier[];
+  hours?: [];
+}
+
+interface IEnergyPricingPlan {
+  id: number;
+  name: string;
+  groups: IEnergyPricingGroup[];
+}
+interface IEnergyPricingPlanCalculation {
+  id: number;
+  name: string;
+  energyCharge: number;
+  energyChargeDetail: {
+    groups: {
+      name: string;
+      hours: number[];
+      cost: number;
+      tiers: {
+        kwh: number;
+        min: number;
+        max: number;
+        rate: number;
+        tierKwh: number;
+        tierCost: number;
+      }[];
+    }[];
+  };
 }

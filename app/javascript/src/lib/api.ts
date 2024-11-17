@@ -1,8 +1,10 @@
 import {
   Household as HouseholdTransformer,
   City as CityTransformer,
+  EnergyPricingPlan as EnergyPricingPlanTransformer,
 } from "../lib/transformers";
 import { Config } from "../config";
+import { EnergyPricingPlan } from "@/models/energy_pricing_plan";
 const { pageSize } = Config.pagination;
 
 export const Api = {
@@ -39,16 +41,51 @@ export const Api = {
       await Api.fetch(`/cities/${id}`, Api.cities.options(1)),
   },
 
+  energyPricingPlans: {
+    options(pageNumber: number) {
+      return {
+        params: {
+          per: pageSize,
+          page: pageNumber,
+        },
+        transformer: EnergyPricingPlanTransformer,
+      };
+    },
+
+    index: async (pageNumber: number) => {
+      return await Api.fetch(
+        "/energy_pricing_plans",
+        Api.energyPricingPlans.options(pageNumber),
+      );
+    },
+
+    show: async (id: number) => {
+      return await Api.fetch(
+        `/energy_pricing_plans/${id}`,
+        Api.energyPricingPlans.options(1),
+      );
+    },
+
+    getCost: async (
+      id: number,
+      readings: number[][],
+    ): Promise<readonly EnergyPricingPlan[]> => {
+      return await Api.fetch(`/energy_pricing_plans/${id}/calculate`, {
+        fetchOptions: { method: "POST", body: JSON.stringify({ readings }) },
+      });
+    },
+  },
   async fetch(
     path: string,
     options?: {
       params?: Record<string, any>;
       transformer?: { transform: (json: any) => any };
+      fetchOptions?: RequestInit;
     },
   ) {
     const url = new URL(path, window.location.origin);
     const { searchParams } = url;
-    const { params = {} } = options || {};
+    const { params = {}, fetchOptions = {} } = options || {};
 
     for (const [key, value] of Object.entries(params)) {
       [value].flat().forEach((item) => {
@@ -56,7 +93,13 @@ export const Api = {
       });
     }
 
-    const fetchOptions = { headers: { Accept: "application/json" } };
+    Object.assign(fetchOptions, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+
     return fetch(url, fetchOptions)
       .then((res) => {
         if (!res.ok) {
@@ -71,5 +114,10 @@ export const Api = {
         console.error("Error remote fetching data", e);
         throw e;
       });
+  },
+
+  get getCsrfToken(): string | null {
+    const meta = document.querySelector('meta[name="csrf-token"]');
+    return meta ? meta.getAttribute("content") : null;
   },
 };
