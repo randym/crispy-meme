@@ -1,8 +1,10 @@
 class EnergyPricingPlansController < ApplicationController
+  include Paginatable
   before_action :require_readings, only: :calculate
+  skip_before_action :verify_authenticity_token, only: :calculate
 
   def index
-    render json: serialize(EnergyPricingPlan.all)
+    render json: serialize(EnergyPricingPlan.page(page).per(per))
   end
 
   def show
