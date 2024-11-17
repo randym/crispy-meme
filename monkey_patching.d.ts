@@ -32,4 +32,14 @@ declare module "@material-tailwind/react" {
   export interface TabsBodyProps extends EventCapture {
     placeholder?: unknown;
   }
+  export interface ButtonProps extends EventCapture {
+    placeholder?: unknown;
+  }
+
+  export interface ListItemProps extends EventCapture {
+    placeholder?: unknown;
+  }
+  export interface ListProps extends EventCapture {
+    placeholder?: unknown;
+  }
 }

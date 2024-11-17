@@ -1,6 +1,16 @@
 /* Always show scrollbar */
 html {
   overflow-y: scroll;
+  height: 100%;
+}
+body {
+  margin: auto;
+}
+body,
+#main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .active {
   color: white;

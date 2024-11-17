@@ -6,7 +6,7 @@ export const Root = () => {
   return (
     <>
       <AppBar />
-      <div className="pt-16 z-0">
+      <div className="flex flex-grow bg-gray-200">
         <Outlet />
       </div>
     </>
