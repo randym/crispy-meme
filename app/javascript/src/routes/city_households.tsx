@@ -2,7 +2,7 @@ import React from "react";
 import { LoaderFunctionArgs } from "react-router-dom";
 import { Households as Page } from "../pages";
 import { City as Model } from "../models";
-import { PagedArray } from "../lib/paginator/paged_array";
+import { PagedArray } from "../lib/utils/paged_array";
 
 export const CityHouseholds = {
   path: "/cities/:id/households",

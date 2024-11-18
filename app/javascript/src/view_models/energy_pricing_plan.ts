@@ -12,11 +12,11 @@ export class EnergyPricingPlan {
     return this.model.id;
   }
 
-  get groups(): IEnergyPricingGroup[] {
-    return this.model.groups;
+  get groups(): EnergyPricingGroup[] {
+    return this.model.energy_pricing_groups;
   }
 
-  async getCost(readings: number[][]): Promise<number> {
+  async getCost(): Promise<number> {
     return await this.model.getCost();
   }
 }

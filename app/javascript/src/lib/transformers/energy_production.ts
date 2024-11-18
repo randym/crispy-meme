@@ -1,23 +1,12 @@
 import { EnergyProduction as Model } from "../../models";
 
-export const EnergyProduction: JsonApiTransformer<EnergyProductionModel> = {
-  transform(json): EnergyProductionModel[] | EnergyProductionModel {
-    if (!Array.isArray(json)) {
-      return EnergyProduction.parseJsonApi({ json }) as EnergyProductionModel;
-    }
-
-    return json.map(
-      (item) =>
-        EnergyProduction.parseJsonApi({ json: item }) as EnergyProductionModel,
-    );
+export const Transformer: EnergyProductionsTransformer = {
+  transform(json) {
+    return json.map((item) => Transformer.parseJsonApi({ json: item }));
   },
 
-  parseJsonApi({
-    json,
-  }: {
-    json: JsonApiEnergyProduction;
-  }): EnergyProductionModel {
-    const { id, type, attributes } = json;
+  parseJsonApi({ json }) {
+    const { id, attributes } = json;
     const {
       householdRef,
       productionMonth: productionMonthString,

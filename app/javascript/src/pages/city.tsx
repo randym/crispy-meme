@@ -1,25 +1,28 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import { Typography } from "@material-tailwind/react";
 import {
   InfiniteScrollingList,
-  City as Card,
-  Household as ComponentType,
+  EnergyProductionCard,
+  City as Detail,
+  Household,
 } from "../components";
 
+interface LoaderData extends PaginatingLoaderData<HouseholdModel> {
+  city: CityModel;
+}
 export const City = () => {
-  const { city, firstPage, source } = useLoaderData() as {
-    city: CityModel;
-    firstPage: readonly HouseholdModel[];
-    source: Paginating<HouseholdModel>;
+  const { city, firstPage, source } = useLoaderData() as LoaderData;
+
+  const renderItem = (item: HouseholdModel) => {
+    return <EnergyProductionCard Detail={Household} item={item} />;
   };
 
-  const props = { firstPage, source, ComponentType };
+  const props = { firstPage, source, renderItem };
 
   return (
-    <>
-      <Card item={city} />
+    <div className="w-full p-4">
+      <EnergyProductionCard Detail={Detail} item={city} />
       <InfiniteScrollingList {...props} />
-    </>
+    </div>
   );
 };

@@ -2,18 +2,21 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import {
   InfiniteScrollingList,
-  Household as ComponentType,
+  Household,
+  EnergyProductionCard,
 } from "../components";
+
 export const Households = () => {
   const { firstPage, source } = useLoaderData() as {
     firstPage: readonly HouseholdModel[];
     source: Paginating<HouseholdModel>;
   };
-  const props = { firstPage, source, ComponentType };
 
-  return (
-    <>
-      <InfiniteScrollingList {...props} />
-    </>
-  );
+  const renderItem = (item: HouseholdModel) => {
+    return <EnergyProductionCard Detail={Household} item={item} />;
+  };
+
+  const props = { firstPage, source, renderItem };
+
+  return <InfiniteScrollingList {...props} />;
 };

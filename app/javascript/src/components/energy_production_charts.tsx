@@ -7,8 +7,13 @@ import {
   TabPanel,
 } from "@material-tailwind/react";
 import ApexChart from "react-apexcharts";
-import { Config } from "../config";
-const { chartOptions } = Config.apex;
+import { chartOptions } from "../config";
+interface ChartsProps {
+  viewModel: {
+    charts: Record<ChartSeriesAttribute, ChartProps>;
+    tabs: Record<ChartSeriesAttribute, string>;
+  };
+}
 
 const Chart: React.FC<ChartProps> = (props) => {
   return (
@@ -18,7 +23,9 @@ const Chart: React.FC<ChartProps> = (props) => {
   );
 };
 
-export const Charts: React.FC<ChartsProps> = ({ viewModel }) => {
+export const EnergyProductionCharts: React.FC<ChartsProps> = ({
+  viewModel,
+}) => {
   const { tabs, charts } = viewModel;
 
   const [chart, setChart] = useState(Object.keys(charts)[0]);

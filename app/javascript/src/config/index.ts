@@ -1,6 +1,2 @@
-import * as Apex from "./apex";
-import * as Pagination from "./pagination";
-export const Config = {
-  apex: Apex,
-  pagination: Pagination,
-};
+export const pageSize = 5;
+export * from "./apex";

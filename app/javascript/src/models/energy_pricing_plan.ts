@@ -1,27 +1,21 @@
 import { EnergyPricingPlan as ViewModel } from "../view_models";
-import { Api } from "../lib/api";
-import { readings } from "../config/meter_readings";
+import { EnergyPricingPlans as Remote } from "../lib/api";
+import { EnergyPricingPlanCalculation } from "./energy_pricing_plan_calculation";
+
 export class EnergyPricingPlan implements EnergyPricingPlanModel {
   id = 0;
   name = "";
-  groups = [];
-  readings = readings;
-  constructor(attributes: IEnergyPricingPlan) {
+  energy_pricing_groups = [];
+
+  constructor(attributes: EnergyPricingPlanModelAttributes) {
     Object.assign(this, attributes);
   }
 
-  static find(id: number): Promise<CityModel> {
-    return Api.households.show(id);
-  }
+  static find = Remote.show;
+  static page = Remote.index;
 
-  static async page(
-    pageNumber: number,
-  ): Promise<readonly IEnergyPricingPlan[]> {
-    return Api.energyPricingPlans.index(pageNumber);
-  }
-
-  async getCost(): Promise<any> {
-    return Api.energyPricingPlans.getCost(this.id, this.readings);
+  getCost() {
+    return EnergyPricingPlanCalculation.find(this.id);
   }
 
   get viewModel(): ViewModel {

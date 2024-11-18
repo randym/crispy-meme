@@ -1,7 +1,7 @@
 import { Household as ViewModel } from "../view_models";
-import { Api } from "../lib/api";
+import { Households as Remote } from "../lib/api";
 
-export class Household implements HouseholdModel {
+export class Household implements Household {
   id: number = 0;
   ref: number = 0;
   firstName: string = "";
@@ -14,17 +14,12 @@ export class Household implements HouseholdModel {
   } = { id: 0, name: "" };
   energyProductions: EnergyProductionModel[] = [];
 
-  constructor(attributes: HouseholdModel) {
+  constructor(attributes: HouseholdModelAttributes) {
     Object.assign(this, attributes);
   }
 
-  static find(id: number): Promise<CityModel> {
-    return Api.households.show(id);
-  }
-
-  static async page(pageNumber: number): Promise<readonly CityModel[]> {
-    return Api.households.index(pageNumber);
-  }
+  static find = Remote.show;
+  static page = Remote.index;
 
   get viewModel(): ViewModel {
     return new ViewModel({ household: this });

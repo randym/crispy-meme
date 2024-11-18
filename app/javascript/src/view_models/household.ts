@@ -1,6 +1,5 @@
 import { Calculator } from "../lib/utils/calculator";
-import { Config } from "../config";
-const { chartSeriesColors } = Config.apex;
+import { chartSeriesColors } from "../config";
 
 export class Household implements HouseholdViewModel {
   private household: HouseholdModel;

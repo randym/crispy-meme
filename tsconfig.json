@@ -24,6 +24,7 @@
   "compileOnSave": false,
   "include": [
     "global.d.ts",
+    "types/**/*.ts",
     "monkey_patching.d.ts",
     "app/javascript/src/**/*.ts",
     "app/javascript/src/**/*.tsx",

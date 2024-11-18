@@ -1,10 +1,11 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
-
-export const LabeledField = (props: {
+interface Props {
   label: string;
   children: React.ReactNode;
-}) => {
+}
+
+export const LabeledField: React.FC<Props> = (props) => {
   const { label = "", children } = props;
 
   return (

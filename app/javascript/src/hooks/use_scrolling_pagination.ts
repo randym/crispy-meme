@@ -1,6 +1,23 @@
 import { useEffect, useState } from "react";
 
-// add pages of data from the provided source when the user scrolls to the bottom of the page
+/**
+ * useScrollingPagination
+ *
+ * A custom React hook that provides infinite scrolling pagination functionality.
+ * It listens for scroll events and loads the next page of data when the user
+ * scrolls to the bottom of the page.
+ *
+ * @template T - The type of items in the paginated list.
+ * @param {Paginating<T>} source - The data source that provides paginated data.
+ * @param {readonly T[]} firstPage - The initial page of data.
+ * @returns {{
+ *   list: readonly T[];
+ *   isLoading: boolean;
+ * }} - An object containing the current list of items and the loading state.
+ *
+ * @example
+ * const { list, isLoading } = useScrollingPagination(source, initialData);
+ */
 export const useScrollingPagination = <T>(
   source: any,
   firstPage: readonly any[],
@@ -10,14 +27,13 @@ export const useScrollingPagination = <T>(
   const [pageNumber, setPageNumber] = useState(1);
   const [shouldPaginate, setShouldPaginate] = useState(false);
 
-  // Monitor scroll events indicating we should paginate
-  // when scrolled to the bottom of the page
   useEffect(() => {
     const handleScroll = () => {
       const { innerHeight } = window;
-      const { scrollTop, offsetHeight } = document.documentElement;
+      const { scrollTop, scrollHeight } = document.documentElement;
       const position = innerHeight + scrollTop;
-      setShouldPaginate(position >= offsetHeight);
+
+      setShouldPaginate(position >= scrollHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -25,7 +41,6 @@ export const useScrollingPagination = <T>(
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // load the next page when we should paginate
   useEffect(() => {
     shouldPaginate && loadNextPage();
   }, [shouldPaginate]);

@@ -4,6 +4,7 @@ export class City implements CityViewModel {
   private city;
   private householdsCalculator: Calculator<HouseholdModel>;
   private energyCalculator: Calculator<EnergyProductionModel>;
+
   constructor({ city }: { city: CityModel }) {
     this.city = city;
     this.householdsCalculator = new Calculator(city.households!);
