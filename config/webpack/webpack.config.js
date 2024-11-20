@@ -26,7 +26,11 @@ const loaders = {
       },
       {
         test: /\.(ts|tsx|js)$/,
-        exclude: [/node_modules/, /_test_*.*\.(ts|tsx|js)$/],
+        exclude: [
+          /node_modules/,
+          /_test_*.*\.(ts|tsx|js)$/,
+          /__test_*.*\.(ts|tsx|js)$/,
+        ],
         use: {
           loader: "babel-loader",
           options: {
