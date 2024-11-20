@@ -1,6 +1,15 @@
 export const round = (number: number, decimalPlaces: number = 2): number =>
   parseFloat(number.toFixed(decimalPlaces));
 
+export const mean = (values: number[]): number =>
+  values.reduce((acc, value) => acc + value, 0) / values.length;
+
+export const scale = (values: number[]): number[] => {
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+
+  return values.map((x) => (x - min) / (max - min));
+};
 interface Stats {
   sum?: number;
   average?: number;
