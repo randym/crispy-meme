@@ -20,7 +20,7 @@ const GradientDescentDefaults: GradientDescentOptions = {
 /**
  * Class representing a Linear Regression model with L2 regularization.
  */
-export class LinearRegression implements GradientDescentOptions {
+export class SGDLinearRegression implements GradientDescentOptions {
   /**
    * The learning rate for gradient descent.
    */
