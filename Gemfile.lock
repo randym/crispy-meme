@@ -251,11 +251,15 @@ GEM
       semantic_range (>= 2.3.0)
     smarter_csv (1.13.0)
     sqlite3 (2.3.0-aarch64-linux-gnu)
+    sqlite3 (2.3.0-aarch64-linux-musl)
     sqlite3 (2.3.0-arm-linux-gnu)
+    sqlite3 (2.3.0-arm-linux-musl)
     sqlite3 (2.3.0-arm64-darwin)
     sqlite3 (2.3.0-x86-linux-gnu)
+    sqlite3 (2.3.0-x86-linux-musl)
     sqlite3 (2.3.0-x86_64-darwin)
     sqlite3 (2.3.0-x86_64-linux-gnu)
+    sqlite3 (2.3.0-x86_64-linux-musl)
     stringio (3.1.2)
     syntax_tree (6.2.0)
       prettier_print (>= 1.2.0)
@@ -282,11 +286,19 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
   arm-linux
+  arm-linux-gnu
+  arm-linux-musl
   arm64-darwin
   x86-linux
+  x86-linux-gnu
+  x86-linux-musl
   x86_64-darwin
   x86_64-linux
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   brakeman
@@ -303,4 +315,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   2.5.23
+   2.5.3
