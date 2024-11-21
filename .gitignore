@@ -82,5 +82,4 @@ notes.md
 yarn.lock
 
 # Ignore vendor
-/vendor/*
-!/vendor/.keep
+vendor/
